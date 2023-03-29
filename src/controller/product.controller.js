@@ -18,7 +18,7 @@ exports.deleteProduct = async(req, res) => {
 }
 
 exports.updateProduct = async(req, res) => {
-    const {product_name, product_price, stock} = req.body;
-    await db.query("UPDATE products SET product_name = ?, product_price = ?, stock = ?", [product_name, product_price, stock]);
+    const {id_product, product_name, product_price, stock} = req.body;
+    await db.query("UPDATE products SET product_name = ?, product_price = ?, stock = ? WHERE id_products = ?", [product_name, product_price, stock, id_product]);
     res.sendStatus(200);
 }
